@@ -13,7 +13,7 @@
         $arr  = array("User","Admin");
     ?>
 
-        <h1>Welcome {{$User}}</h1>
+        <h1>Welcome Admin : {{$User}}</h1>
         @foreach ($arr as $menu)
             <a href="">{{$menu}}</a>
 
