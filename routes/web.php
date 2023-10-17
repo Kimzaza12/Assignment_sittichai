@@ -16,10 +16,10 @@ use App\Http\Controllers\userController;
 |
 */
 
-Route::get('/', [mainController::class, 'index']);
+Route::get('/', [mainController::class, 'index'])->name('login');
 
-Route::get('/user',[adminController::class, 'index']);
+Route::get('/user',[userController::class, 'index'])->name('user');
 
-Route::get('/admin',[adminController::class, 'index']);
+Route::get('/admin',[adminController::class, 'index'])->name("admin") ->middleware('checkadmin');
 
 

@@ -9,9 +9,13 @@
 <body>
 
     <?php 
-        $User = "ss";
+        $name = "kim";
     ?>
 
+        <h1>Welcome User : {{$list}}</h1>
+
+        <a href="{{route('user')}}">User</a>
+        <a href="{{route('admin')}}">Admin</a>
 
 </body>
 </html>

@@ -9,14 +9,14 @@
 <body>
 
     <?php 
-        $User = "kim";
-        $arr  = array("User","Admin");
+        $name = "kim";
     ?>
 
-        <h1>Welcome Admin : {{$User}}</h1>
+        <h1>Welcome Admin : {{$name}}</h1>
 
-        <a href="/user">ser</a>
-        <a href="/admin">Admin</a>
+        <a href="{{route('user')}}">User</a>
+        <a href="{{route('admin')}}">Admin</a>
+
 
 </body>
 </html>

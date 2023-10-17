@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class userController extends Controller
 {
     function index(){
-        return view('user');
+        $list ="สิทธิชัย";
+        return view('user',compact('list'));
     }
 }
