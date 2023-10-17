@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\adminController;
-
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +16,10 @@ use App\Http\Controllers\adminController;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', [mainController::class, 'index']);
 
+Route::get('/user',[adminController::class, 'index']);
 
 Route::get('/admin',[adminController::class, 'index']);
 
 
-Route::get('/User', [mainController::class, 'index']);

@@ -9,14 +9,9 @@
 <body>
 
     <?php 
-        $User = "kim";
-        $arr  = array("User","Admin");
+        $User = "ss";
     ?>
 
-        <h1>Welcome Admin : {{$User}}</h1>
-
-        <a href="/user">ser</a>
-        <a href="/admin">Admin</a>
 
 </body>
 </html>

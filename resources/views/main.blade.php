@@ -10,15 +10,11 @@
 
     <?php 
         $User = "kim";
-        $arr  = array("User","Admin");
     ?>
 
-        <h1>Welcome {{$User}}</h1>
-        @foreach ($arr as $menu)
-            <a href="">{{$menu}}</a>
+        <h1> Login PassWord </h1>
 
 
-        @endforeach
 
 
 </body>
