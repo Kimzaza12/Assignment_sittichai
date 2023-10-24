@@ -14,12 +14,13 @@
 
     <div class="container mt-2 px-10 py-10">
         <div class="row">
+
             <div class="col-lg-12 text-center">
                 <h2>Sittichai Laravel 10.x</h2>
             </div>
 
             <div>
-                <a href="{{ route('admin.create') }}" class="btn btn-success mt-10 my-10">Create post</a>
+                <a href="{{ route('create') }}" class="btn btn-success mt-10 my-10">Create post</a>
             </div>
             @if ($mg = Session::get('success'))
                 <div class=" alert alert-success">
@@ -39,18 +40,17 @@
                         <td>{{ $ment->id }}</td>
                         <td>{{ $ment->username }}</td>
                         <td>{{ $ment->post }}</td>
+
                         <td>
-                            <form action="{{ route('admin.destroy', $ment->id) }}" method="POST">
-                                <a href="{{ route('admin.edit', $ment->id) }}" class="btn   btn-warning ">Edit</a>
-                                @csrf
-                                @method('DELETE')
-                                <button class=" btn  btn-danger ">Delete</button>
-                            </form>
+                                <a href="{{ route('edit', $ment->id ) }}" class="btn   btn-warning ">Edit</a>
+                                <a href="" class="btn   btn-danger  ">DELETE</a>
                         </td>
+
+
                     </tr>
                 @endforeach
             </table>
-
+            {!! $assignment->links('pagination::bootstrap-5') !!}
         </div>
     </div>
 

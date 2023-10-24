@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('admin', adminController::class);
+Route::get('/admin/index', [adminController::class,'index'])->name('index');
 
+Route::get('/admin/create', [adminController::class,'create'])->name('create');
 
+Route::post('/admin/create/post', [adminController::class,'store'])->name('createpost');
 
+Route::get('/admin/edit/{id}',[adminController::class,'edit'])->name('edit');
 
+Route::post('/admin/edit/update/{id}',[adminController::class,'update'])->name('update');
 
 
 

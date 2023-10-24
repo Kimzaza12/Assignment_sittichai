@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\assig;
 use Illuminate\Http\Request;
@@ -7,17 +6,17 @@ use Symfony\Contracts\Service\Attribute\Required;
 
 class adminController extends Controller
 {
-    function index(){
+    public function index(){
         $data['assignment'] = assig::orderby('id', 'desc')->paginate(5);
-        return view('admin.index',$data);
+        return view('admin.index' ,$data);
     }
 
-    function create(){
+    public function create(){
 
         return view('admin.create');
     }
 
-    function store(Request $request){
+    public function store(Request $request){
         $request->validate([
             'username' => 'required',
             'post' => 'required'
@@ -27,14 +26,27 @@ class adminController extends Controller
         $dataassig->username = $request->username;
         $dataassig->post = $request->post;
         $dataassig->save();
-        return redirect()->route('admin.index')->with('success','Post created successfully.');
+        return redirect()->route('index')->with('success','Post created successfully.');
     }
 
 
-    function Destroy(){
-        
-        return view('admin.Destroy');
+    public function edit($id) {
+        $assig2 = assig::find($id);
+        return view('admin.edit', compact('assig2'));
     }
 
-    //
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'username'=> 'required',
+            'post'=> 'required'
+        ]);
+
+        $assig2 = assig::find($id);
+        $assig2->username = $request->username;
+        $assig2->post = $request->post;
+        $assig2->save();
+        return redirect()->route('index')->with('success','Post Edit successfully.');
+    }
+
 }

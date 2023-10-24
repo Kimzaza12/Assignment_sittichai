@@ -15,26 +15,27 @@
     <div class="container mt-2 px-10 py-10">
         <div class="row">
             <div class="col-lg-12 ">
-                <h2>Add Post</h2>
+                <h2>Edit Post</h2>
 
                 <div>
                     <a href="{{ route('index') }}" class="btn btn-primary ">back</a>
                 </div>
+
                 @if (session('status'))
                     <div>
                         {{ session('status') }}
                     </div>
                 @endif
-                <form action="{{ route('createpost') }}" method="POST" enctype="multipart/form-data">
+
+                <form action="{{ route('update', $assig2->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="container">
-
                         <div class="row">
                             <div class="col-md-12 mt-3">
                                 <div class="form-group">
                                     <strong>Username</strong>
-                                    <input type="text" name="username" class=" form-control"
-                                        placeholder="Input username">
+                                    <input type="text" name="username" value="{{ $assig2->username }}"
+                                        class=" form-control" placeholder="Input username">
                                     @error('username')
                                         <div class=" alert alert-danger ">{{ $mg }}</div>
                                     @enderror
@@ -45,8 +46,8 @@
                             <div class="col-md-12 mt-3">
                                 <div class="form-group ">
                                     <strong>Post</strong>
-                                    <input type="text" name="post" class=" form-control"
-                                        placeholder="Input post">
+                                    <input type="text" name="post" value="{{ $assig2->post }}"
+                                        class=" form-control" placeholder="Input post">
                                     @error('username')
                                         <div class=" alert alert-danger ">{{ $mg }}</div>
                                     @enderror
@@ -59,7 +60,7 @@
 
                         </div>
 
-
+                    </div>
                 </form>
             </div>
 
