@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\assig;
+use App\Models\member;
+
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
+
+use function Laravel\Prompts\alert;
 
 class adminController extends Controller
 {
@@ -57,7 +61,6 @@ class adminController extends Controller
     }
 
 
-
     public function user()
     {
         $data['assignmentuser'] = assig::orderby('id', 'desc')->paginate(6);
@@ -65,32 +68,62 @@ class adminController extends Controller
     }
 
 
-    public function login()
+    public function delete(Request $request, $id)
     {
-        return view('admin.login');
-    }
-
-    public function adminlogin(Request $request)
-    {
-
-        $input = $request->all();
-        
-        return redirect()->route('login');
-
-        if ($input == 0) {
-            return redirect()->route('index');
-        }
-     
-    }
-
-    public function delete(Request $request, $id){
-        
         $itemId = $request->route('id');
 
         assig::find($itemId)->delete();
 
         return redirect()->route('index')->with('success', 'Post Delete successfully.');
-
     }
 
+
+    public function login()
+    {
+        $data['loig'] = member::orderby('id', 'desc')->paginate(5);
+        return view('admin.login', $data);
+    }
+
+
+    public function loginto(Request $request)
+    {
+
+        $username = $request->username;
+        $password = $request->password;
+
+        $log = Member::where('username', $username)
+        ->where('password', $password)
+        ->first();
+    
+
+        if ($log ) {
+            return redirect()->route('index');
+        }
+
+        return redirect()->route('login');
+    }
+
+
+
+    public function registo(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+            'email' => 'required',
+        ]);
+
+        $loginnew = new member;
+        $loginnew->username = $request->username;
+        $loginnew->password = $request->password;
+        $loginnew->email = $request->email;
+        $loginnew->save();
+        return redirect()->route('login');
+    }
+
+
+    public function regis()
+    {
+        return view('admin.register');
+    }
 }

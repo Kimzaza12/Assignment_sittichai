@@ -26,23 +26,22 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('login') }}">Admin</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container mt-5 ">
         <div class="row">
-
             <div class="col-lg-12 text-center mb-3">
 
-                <h2>Login</h2>
+                <h2>Register</h2>
 
             </div>
             <div class="col-lg-12  d-flex justify-content-center">
                 <div class="blog " style="max-width: 600px">
 
-                    <form action="{{ route('loginto') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('registo') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
@@ -57,25 +56,24 @@
                                 value="">
                         </div>
 
-                        <div class="mb-4">
-                            <a href="{{ route('regis') }}">New User Register Here.</a>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Input email"
+                                value="">
                         </div>
 
-
                         <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <a href="{{ route('login') }}" class="btn  btn-danger  ">back</a>
 
 
                     </form>
 
-           
-
-
                 </div>
             </div>
-
-
         </div>
     </div>
+
 </body>
 
 </html>

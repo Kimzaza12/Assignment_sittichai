@@ -1,20 +1,9 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\memberController;
 use Illuminate\Support\Facades\Route;
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/admin/index', [adminController::class,'index'])->name('index');
 
@@ -32,4 +21,11 @@ Route::get('/',[adminController::class,'user'])->name('user');
 
 Route::get('/admin/login',[adminController::class,'login'])->name('login');
 
-Route::get('/admin/login/{id}',[adminController::class,'adminlogin'])->name('adminlogin');
+Route::post('/admin/login',[adminController::class,'loginto'])->name('loginto');
+
+Route::get('/admin/register',[adminController::class,'regis'])->name('regis');
+
+Route::post('/admin/register',[adminController::class,'registo'])->name('registo');
+
+
+
