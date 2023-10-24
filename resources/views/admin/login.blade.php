@@ -67,7 +67,32 @@
 
                     </form>
 
-           
+
+                    @if ($mg = Session::get('failed'))
+                        <div class=" alert alert-danger mt-5 ">
+                            <p>{{ $mg }}</p>
+                        </div>
+                        <script>
+          
+                            setTimeout(function() {
+                                window.location.href = "{{ route('login') }}";
+                            }, 2000); 
+                        </script>
+                    @endif
+
+                    @if ($mg = Session::get('check'))
+                        <div class=" alert alert-success mt-5 ">
+                            <p>{{ $mg }}</p>
+                        </div>
+                        <script>
+                          
+                            setTimeout(function() {
+                                window.location.href = "{{ route('login') }}";
+                            }, 2000); 
+                        </script>
+                    @endif
+
+
 
 
                 </div>

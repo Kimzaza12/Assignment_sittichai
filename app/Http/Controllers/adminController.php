@@ -100,7 +100,7 @@ class adminController extends Controller
             return redirect()->route('index');
         }
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('failed', 'Login failed');
     }
 
 
@@ -118,7 +118,7 @@ class adminController extends Controller
         $loginnew->password = $request->password;
         $loginnew->email = $request->email;
         $loginnew->save();
-        return redirect()->route('login');
+        return redirect()->route('login')->with('check', 'Successfully registered');
     }
 
 

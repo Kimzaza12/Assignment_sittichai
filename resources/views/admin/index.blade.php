@@ -41,10 +41,19 @@
             <div>
                 <a href="{{ route('create') }}" class="btn btn-success mb-3 my-10">Create post</a>
             </div>
+
             @if ($mg = Session::get('success'))
+
                 <div class=" alert alert-success">
                     <p>{{ $mg }}</p>
                 </div>
+
+                <script>
+                    setTimeout(function() {
+                        window.location.href = "{{ route('index') }}";
+                    }, 2000);
+                </script>
+                
             @endif
 
             <table class="table table-hover">
