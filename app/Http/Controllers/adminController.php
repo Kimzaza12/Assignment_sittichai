@@ -126,4 +126,12 @@ class adminController extends Controller
     {
         return view('admin.register');
     }
+
+    public function useradmin(){
+        $data['assignmentuser'] = assig::orderby('id', 'desc')->paginate(6);
+        return view('admin.useradmin', $data);
+        
+    }
+
+
 }

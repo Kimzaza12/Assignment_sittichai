@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\memberController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/admin/index', [adminController::class,'index'])->name('index');
+Route::get('/admin/index', [adminController::class,'index'])->name('index');  // ->middleware('check')
 
 Route::get('/admin/create', [adminController::class,'create'])->name('create');
 
@@ -18,6 +17,8 @@ Route::post('/admin/edit/update/{id}',[adminController::class,'update'])->name('
 Route::get('/admin/delete/{id}}',[adminController::class,'delete'])->name('delete');
 
 Route::get('/',[adminController::class,'user'])->name('user');
+
+Route::get('/user/admin',[adminController::class,'useradmin'])->name('useradmin');
 
 Route::get('/admin/login',[adminController::class,'login'])->name('login');
 

@@ -11,26 +11,51 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('user') }}">Laraval kim</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="{{ route('useradmin') }}">Laraval kim</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ route('user') }}">User</a>
+
+
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav  ">
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link  " aria-current="page" href="{{ route('useradmin') }}">User</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('login') }}">Admin</a>
+
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="{{ route('index') }}">Admin</a>
                     </li>
 
                 </ul>
             </div>
+
+
+            <ul class="navbar-nav  ">
+
+                <li class="nav-item ">
+                    <a class="nav-link " href="{{ route('login') }}">Logout</a>
+                </li>
+
+
+            </ul>
+
+
+
+
+
         </div>
     </nav>
+
+
     <div class="container mt-5 px-10 py-10">
         <div class="row">
 
@@ -43,7 +68,6 @@
             </div>
 
             @if ($mg = Session::get('success'))
-
                 <div class=" alert alert-success">
                     <p>{{ $mg }}</p>
                 </div>
@@ -53,7 +77,6 @@
                         window.location.href = "{{ route('index') }}";
                     }, 2000);
                 </script>
-                
             @endif
 
             <table class="table table-hover">

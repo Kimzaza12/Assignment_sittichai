@@ -52,8 +52,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password">password</label>
-                            <input type="text" class="form-control" name="password" placeholder="Input password"
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Input password"
                                 value="">
                         </div>
 
